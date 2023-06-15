@@ -1,0 +1,79 @@
+/* :root {
+  --primary: #274574;
+  --secondary: #5397BD;
+  --accent1: #6F707A;
+  --accent2: #201A21;
+  --background: #D6DADC;
+} */
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.nav-item:hover{
+  background-color: var(--background);
+  cursor: pointer;
+}
+/* dropdown hover color style couldn't be updated using react without a lot of scripting */
+/* .dropdown-item:hover{
+ background-color: var(--accent1) !important;
+  color:var(--primary) !important;
+} */
+h1 {
+  font-family: 'Abhaya Libre' ;
+  font-style: normal;
+  font-weight: 400;
+}
+h2 {
+  font-family: 'Abhaya Libre' ;
+  font-style: normal;
+  font-weight: 400;
+}
+p{
+  font-family: 'Abhaya Libre';
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+@media screen and (min-width:300px) {
+  h1 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+  h2{
+    font-size: 24px;
+    line-height: 32px;
+  }
+  p{
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+@media screen and (min-width:800px) {
+  h1 {
+    font-size: 48px;
+    line-height: 58px;
+  }
+  h2{
+    font-size: 36px;
+    line-height: 42px;
+  }
+  p{
+    font-size: 24px;
+    line-height: 140%;
+  }
+}
