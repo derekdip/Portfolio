@@ -4,7 +4,7 @@ interface Footer{
   setSelectedPalette:Function
 }
 export default function Footer({setSelectedPalette}:Footer){
-    
+    return (<></>)
 }
 
 

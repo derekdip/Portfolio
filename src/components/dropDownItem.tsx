@@ -1,9 +1,10 @@
 'use client'
-import { Palette,PaletteContext } from 'app/page';
+import { Palette, PaletteContext } from '@styles/paletteContext';
 import { useContext, useEffect, useState } from 'react';
 interface DropDownParams{
     href:string,
-    text:string
+    text:string,
+    id:string
 }
 export default function DropDownItem(params:DropDownParams){
     const selectedPalette = useContext<Palette>(PaletteContext);
@@ -16,12 +17,13 @@ export default function DropDownItem(params:DropDownParams){
         setDropDownItemStyle({color:selectedPalette.accent2});
     }
     useEffect(() => {
+        //@ts-ignore
         import("bootstrap/dist/js/bootstrap");
       }, []);
     useEffect(()=>{
         setDropDownItemStyle({color:selectedPalette.accent2});
     },[selectedPalette])
     return(
-        <li><a className="dropdown-item" href={params.href} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={dropDownItemStyle}>{params.text}</a></li>
+        <li><a data-testid={params.id} className="dropdown-item" href={params.href} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={dropDownItemStyle}>{params.text}</a></li>
     )
 }
