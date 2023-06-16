@@ -1,34 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Web Portfolio
 
-## Getting Started
+Welcome to my web portfolio! This portfolio showcases my work and provides information about my skills and experience. One of the standout features of this portfolio is the ability for users to customize the color palette of the entire website. This allows visitors to personalize their browsing experience and create a visually appealing environment.
 
-First, run the development server:
+## Table of Contents
+- [Demo](#demo)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Demo
+
+![Web Portfolio Demo](demo.gif)
+
+[Live Demo](https://your-web-portfolio-url.com)
+
+## Features
+
+- **Color Palette Customization:** Users can change the color scheme of the website to match their preferences. The portfolio provides a range of predefined color palettes to choose from, enabling users to create a unique and personalized experience.
+
+- **Responsive Design:** The web portfolio is designed to be responsive and adapt to different screen sizes and devices. It ensures a seamless browsing experience across desktop, tablet, and mobile devices.
+
+- **Projects Showcase:** The portfolio showcases my projects, including descriptions, images, and links to live demos or repositories. Visitors can explore my work and easily navigate to project details.
+
+- **About Me:** The portfolio provides information about me, including my background, skills, and experience. It helps visitors get to know me better and understand my expertise.
+
+- **Contact Information:** Users can easily find my contact information, such as email address, social media profiles, or a contact form. This allows potential clients or collaborators to reach out to me easily.
+
+## Installation
+
+To run this web portfolio locally, follow these steps:
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/your-web-portfolio.git
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd your-web-portfolio
+```
+
+3. Install the dependencies:
+
+```bash
+npm install
+```
+
+4. Start development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Contributions to this web portfolio are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
