@@ -1,23 +1,24 @@
+
 .header{
     width: 100vw;
 }
-.nav-item{
+.navItemCustom{
     padding-left: 26px;
     padding-right: 26px;
 }
-.navbar-expand-lg{
+.navbarExpandCustom{
     width: 100%;
     padding-top: 0;
     padding-bottom: 0;
 }
-.container-fluid{
+.containerFluidCustom{
     padding-left: 30px;
     padding-right: 30px;
 }
-.dropdown-toggle::after{
+.dropdownToggle::after{
     position: relative;
     top: 4px;
 }
-.dropdown-menu.show{
+.dropdownMenuShow{
     width: 200px;
 }
