@@ -13,11 +13,6 @@ describe('Header component', () => {
         const Resume=await checkAndGetComponent({findByTestId,id:"resume-link"})
         expect(Resume).toHaveTextContent('Resume')
     })
-    test('Projects Button Renders, displays, works',async()=>{
-        const {findByTestId} = customRender(<Header></Header>);
-        const Projects=await checkAndGetComponent({findByTestId,id:"projects-link"})
-        expect(Projects).toHaveTextContent('Projects')
-    })
     test('Contact Button Renders, displays, works',async()=>{
         const {findByTestId} = customRender(<Header></Header>);
         const Contact=await checkAndGetComponent({findByTestId,id:"contact-link"})

@@ -1,4 +1,4 @@
-import DropDownItem  from '@components/dropDownItem';
+import {DropDownItem}  from '@components/dropDown';
 import { rgbToHex } from '@jestHelpers/colors';
 import customRender from '@jestHelpers/customRender';
 import {checkAndGetComponent} from '@jestHelpers/simpleReusableTests'
@@ -8,7 +8,7 @@ import {startingPalette} from '@styles/paletteContext'
 describe('DropDownItem component', () => {
     let currentBackgroundColor=null;
     test('Item Renders, displays, works',async()=>{
-        const {findByTestId} = customRender(<DropDownItem href={'fancy-link'} text={'fancy-text'} id='fancy-item'></DropDownItem>)
+        const {findByTestId} = customRender(<DropDownItem href={'fancy-link'} text={'fancy-text'} testId='fancy-item'/>)
         const dropDownItem=await checkAndGetComponent({findByTestId,id:"fancy-item"})
         expect(dropDownItem).toHaveTextContent('fancy-text')
         currentBackgroundColor=rgbToHex(dropDownItem.style.backgroundColor)
