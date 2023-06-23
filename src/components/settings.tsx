@@ -1,4 +1,4 @@
-import { Palette, PaletteContext, PaletteContextInterface, getPaletteContext, setPaletteContext } from "@styles/paletteContext";
+import { Palette, PaletteContext, PaletteContextInterface, GetPaletteContext, SetPaletteContext } from "@styles/paletteContext";
 import { useContext, useState } from "react";
 import { H1, H2, TextProps } from "./text";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
@@ -6,8 +6,8 @@ import styles from "@styles/settings.module.css"
 import { ColorInput } from "./customForms";
 
 const Settings: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({className,style}) => {
-    const selectedPalette = getPaletteContext()
-    const setSelectedPalette=setPaletteContext()
+    const selectedPalette = GetPaletteContext()
+    const setSelectedPalette=SetPaletteContext()
 
 
     const [show, setShow] = useState(false);

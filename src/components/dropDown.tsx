@@ -1,5 +1,5 @@
 'use client'
-import {  getPaletteContext } from '@styles/paletteContext';
+import {  GetPaletteContext } from '@styles/paletteContext';
 import React,{ useEffect, useState, useRef } from 'react';
 interface DropDownParams{
     href:string,
@@ -7,7 +7,7 @@ interface DropDownParams{
     testId:string
 }
 function DropDownItem(params:DropDownParams){
-    const selectedPalette = getPaletteContext()
+    const selectedPalette = GetPaletteContext()
     const [dropDownItemStyle,setDropDownItemStyle]=useState({color:selectedPalette.accent2});
     function handleMouseEnter(params:any) {
         const itemStyle={backgroundColor:selectedPalette.primary, color:selectedPalette.accent1};
@@ -28,9 +28,10 @@ function DropDownItem(params:DropDownParams){
     )
 }
 
+// eslint-disable-next-line react/display-name
 const CustomToggle=React.forwardRef(
   ({ children, onClick }:React.HTMLAttributes<HTMLHeadingElement>,_ ) => {
-    const selectedPalette = getPaletteContext()
+    const selectedPalette = GetPaletteContext()
     const ref = useRef<HTMLAnchorElement>(null);
     return (
   <a
@@ -50,6 +51,7 @@ const CustomToggle=React.forwardRef(
     )
 });
 
+// eslint-disable-next-line react/display-name
 const CustomMenu= React.forwardRef(
   ({ children, style, className, 'aria-labelledby': labeledBy }:React.HTMLAttributes<HTMLHeadingElement>,_ ) => {
     const ref = useRef<HTMLDivElement>(null);

@@ -21,9 +21,9 @@ export const startingPalette:Palette={
     background: '#D6DADC',
 }
 export const PaletteContext=createContext<PaletteContextInterface>({Palette:startingPalette,SetPalette:()=>{}});
-export const getPaletteContext=()=>{
+export const GetPaletteContext=()=>{
     return useContext<PaletteContextInterface>(PaletteContext).Palette
 }
-export const setPaletteContext=()=>{
+export const SetPaletteContext=()=>{
     return useContext<PaletteContextInterface>(PaletteContext).SetPalette
 }

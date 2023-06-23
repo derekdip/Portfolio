@@ -1,6 +1,6 @@
 import { Form } from "react-bootstrap";
 import { H2,H3, P } from "./text";
-import { getPaletteContext } from "@styles/paletteContext";
+import { GetPaletteContext } from "@styles/paletteContext";
 import { useState } from "react";
 interface Input{
     title:string
@@ -8,7 +8,7 @@ interface Input{
     setColor:Function
 }
 const ColorInput: React.FC<React.HTMLAttributes<HTMLElement>&Input> = ({title,startingColor,setColor}) => {
-    const selectedPalette = getPaletteContext()
+    const selectedPalette = GetPaletteContext()
     const [textVal,setTextVal]=useState<string>(startingColor)
     return(
         <>

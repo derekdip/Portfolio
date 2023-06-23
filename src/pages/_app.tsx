@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }:AppProps) {
     document.body.style.margin="0"
     document.body.style.padding="0"
     document.body.style.height='100%'
-  },[])
+  },[colorPalette])
   useEffect(()=>{
     document.body.style.backgroundColor=colorPalette.background
   },[colorPalette])
