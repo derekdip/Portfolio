@@ -1,10 +1,9 @@
 'use client'
 import React, {  useEffect } from 'react';
 import styles from "@styles/header.module.css"
-
 import { GetPaletteContext } from '@styles/paletteContext';
 import { CustomMenu, CustomToggle, DropDownItem } from "@components/dropDown"
-import {Container, Dropdown, Nav, NavDropdown, Navbar} from 'react-bootstrap'
+import {Container, Dropdown, Nav, Navbar} from 'react-bootstrap'
 import { H1, A, H2 } from './text';
 import { Settings } from './settings';
 export default function Header(){
