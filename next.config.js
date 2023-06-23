@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     presets: [
-        ['@babel/preset-react', {runtime: 'automatic'}],
+        '@babel/preset-env',
+        ['@babel/preset-react'],
       ],
 }
 
