@@ -1,9 +1,9 @@
 interface TextProps extends React.HTMLAttributes<HTMLHeadingElement> {
-    children: React.ReactNode|string;
+    children?: React.ReactNode|string;
     testId?:string;
     className?:string;
 }
-interface Anchor{
+interface Anchor extends React.HTMLAttributes<HTMLAnchorElement>{
     href?:string
 }
   
@@ -45,4 +45,5 @@ const A: React.FC<TextProps&Anchor> = ({ style, children, href, testId, classNam
 };
 
 
-export{H1,H2,H3,P,A}
+export { H1, H2, H3, P, A };
+export type { TextProps };

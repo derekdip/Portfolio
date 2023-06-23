@@ -1,13 +1,14 @@
 'use client'
-import React, {  useEffect, useContext, CSSProperties } from 'react';
+import React, {  useEffect } from 'react';
 import styles from "@styles/header.module.css"
 
-import { Palette,PaletteContext } from '@styles/paletteContext';
+import { getPaletteContext } from '@styles/paletteContext';
 import { CustomMenu, CustomToggle, DropDownItem } from "@components/dropDown"
 import {Container, Dropdown, Nav, NavDropdown, Navbar} from 'react-bootstrap'
 import { H1, A, H2 } from './text';
+import { Settings } from './settings';
 export default function Header(){
-    const selectedPalette = useContext<Palette>(PaletteContext);
+    const selectedPalette = getPaletteContext()
     useEffect(() => {
         //@ts-ignore
         import("bootstrap/dist/js/bootstrap");
@@ -31,7 +32,7 @@ export default function Header(){
                         </H2> 
                         <Dropdown>
                             <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
-                                    <H2 className={styles.navItemCustom} style={{paddingRight:'10px'}}>
+                                    <H2 className={styles.navItemCustom} style={{color: selectedPalette.accent2,paddingRight:'10px'}}>
                                         Projects
                                     </H2>
                             </Dropdown.Toggle>
@@ -46,6 +47,7 @@ export default function Header(){
                         <H2 className={styles.navItemCustom}>
                             <A testId="contact-link" href="./#" style={{ color: selectedPalette.accent2 }}>Contact</A>
                         </H2>
+                        <Settings className={styles.navItemCustom} style={{marginTop:8, }}></Settings>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>

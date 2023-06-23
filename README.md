@@ -6,15 +6,13 @@ Welcome to my web portfolio! This portfolio showcases my work and provides infor
 - [Demo](#demo)
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Demo
 
 ![Web Portfolio Demo](demo.gif)
 
-[Live Demo](https://your-web-portfolio-url.com)
+[Live Demo](https://derekpenaloza.com)
 
 ## Features
 

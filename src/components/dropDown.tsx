@@ -1,13 +1,13 @@
 'use client'
-import { Palette, PaletteContext } from '@styles/paletteContext';
-import React,{ useContext, useEffect, useState, useRef } from 'react';
+import {  getPaletteContext } from '@styles/paletteContext';
+import React,{ useEffect, useState, useRef } from 'react';
 interface DropDownParams{
     href:string,
     text:string,
     testId:string
 }
 function DropDownItem(params:DropDownParams){
-    const selectedPalette = useContext<Palette>(PaletteContext);
+    const selectedPalette = getPaletteContext()
     const [dropDownItemStyle,setDropDownItemStyle]=useState({color:selectedPalette.accent2});
     function handleMouseEnter(params:any) {
         const itemStyle={backgroundColor:selectedPalette.primary, color:selectedPalette.accent1};
@@ -30,7 +30,7 @@ function DropDownItem(params:DropDownParams){
 
 const CustomToggle=React.forwardRef(
   ({ children, onClick }:React.HTMLAttributes<HTMLHeadingElement>,_ ) => {
-//:  React.FC<React.HTMLAttributes<HTMLHeadingElement>>=({ children, onClick },_) => {
+    const selectedPalette = getPaletteContext()
     const ref = useRef<HTMLAnchorElement>(null);
     return (
   <a
@@ -42,7 +42,7 @@ const CustomToggle=React.forwardRef(
         onClick(e);
       }
     }}
-    style={{flex:1,display:'flex', alignItems:'center'}}
+    style={{flex:1,display:'flex', alignItems:'center',color: selectedPalette.accent2}}
   >
     {children}
     &#x25bc;
