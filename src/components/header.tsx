@@ -27,7 +27,7 @@ export default function Header(){
                             <A testId="home-link" href="./#" style={{ color: selectedPalette.accent2 }}>Home</A>
                         </H2>
                         <H2 className={styles.navItemCustom}>
-                            <A testId="resume-link" href="./#" style={{ color: selectedPalette.accent2 }}>Resume</A>
+                            <A testId="resume-link" href="/DerekResume.pdf" download={'derek.pdf'} style={{ color: selectedPalette.accent2 }}>Download Resume</A>
                         </H2> 
                         <Dropdown>
                             <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">

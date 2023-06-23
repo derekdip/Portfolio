@@ -1,9 +1,12 @@
+import { AnchorHTMLAttributes } from "react";
+
 interface TextProps extends React.HTMLAttributes<HTMLHeadingElement> {
     children?: React.ReactNode|string;
     testId?:string;
     className?:string;
 }
-interface Anchor extends React.HTMLAttributes<HTMLAnchorElement>{
+interface Anchor extends AnchorHTMLAttributes<HTMLAnchorElement>{
+    testId?:string
     href?:string
 }
   
@@ -36,9 +39,9 @@ const P: React.FC<TextProps> = ({ style, children, className }) => {
         </p>
     )
 };
-const A: React.FC<TextProps&Anchor> = ({ style, children, href, testId, className }) => {
+const A: React.FC<Anchor> = ({ style, children, href, testId, className, download }) => {
     return(
-        <a className={className} data-testid={testId} href={href} style={style}>
+        <a className={className} data-testid={testId} href={href} download={download} style={style}>
             {children}
         </a>
     )
