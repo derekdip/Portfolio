@@ -1,6 +1,6 @@
 'use client'
 import React, {  useEffect } from 'react';
-import styles from "@styles/header.module.css"
+import styles from "@styles/Header.module.css"
 import { GetPaletteContext } from '@styles/paletteContext';
 import { CustomMenu, CustomToggle, DropDownItem } from "@components/dropDown"
 import {Container, Dropdown, Nav, Navbar} from 'react-bootstrap'
