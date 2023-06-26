@@ -1,6 +1,5 @@
-'use client'
 import {  GetPaletteContext } from '@styles/paletteContext';
-import React,{ useEffect, useState, useRef } from 'react';
+import React,{ useState, useRef } from 'react';
 interface DropDownParams{
     href:string,
     text:string,
@@ -8,23 +7,19 @@ interface DropDownParams{
 }
 function DropDownItem(params:DropDownParams){
     const selectedPalette = GetPaletteContext()
-    const [dropDownItemStyle,setDropDownItemStyle]=useState({color:selectedPalette.accent2});
-    function handleMouseEnter(params:any) {
-        const itemStyle={backgroundColor:selectedPalette.primary, color:selectedPalette.accent1};
+    const [dropDownItemStyle,setDropDownItemStyle]=useState({color:selectedPalette.quaternary});
+    function handleMouseEnter(params?:any) {
+        const itemStyle={backgroundColor:selectedPalette.primary, color:selectedPalette.tertiary};
         setDropDownItemStyle(itemStyle);
     } 
-    function handleMouseLeave(params:any){
-        setDropDownItemStyle({color:selectedPalette.accent2});
+    function handleMouseLeave(params?:any){
+        setDropDownItemStyle({color:selectedPalette.quaternary});
     }
-    useEffect(() => {
-        //@ts-ignore
-        import("bootstrap/dist/js/bootstrap");
-      }, []);
-    useEffect(()=>{
-        setDropDownItemStyle({color:selectedPalette.accent2});
-    },[selectedPalette])
     return(
-        <li><a data-testid={params.testId} className="dropdown-item" href={params.href} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={dropDownItemStyle}>{params.text}</a></li>
+        <li><a data-testid={params.testId} className="dropdown-item" href={params.href} onClick={()=>{ //makes it look consistent across mobile
+          handleMouseEnter()
+          handleMouseLeave()
+      }} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={dropDownItemStyle}>{params.text}</a></li>
     )
 }
 
@@ -43,7 +38,7 @@ const CustomToggle=React.forwardRef(
         onClick(e);
       }
     }}
-    style={{flex:1,display:'flex', alignItems:'center',color: selectedPalette.accent2}}
+    style={{flex:1,display:'flex', alignItems:'center',color: selectedPalette.quaternary}}
   >
     {children}
     &#x25bc;

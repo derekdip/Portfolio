@@ -1,4 +1,3 @@
-"use client"
 import styles from '@styles/Home.module.css'
 import Footer from '@components/footer'
 import Header from '@components/header';
@@ -6,10 +5,10 @@ import { PaletteContextInterface, PaletteContext } from '@styles/paletteContext'
 import { useContext } from 'react';
 export default function Home() {
   const selectedPalette = useContext<PaletteContextInterface>(PaletteContext).Palette;
-  return (
+    return (
       <main className={styles.main}>
         <Header/>
-        <p className={styles.summary} style={{color:selectedPalette.accent1}}>
+        <p className={styles.summary} style={{color:selectedPalette.tertiary}}>
         As a motivated and passionate student in my third year of university,
         I bring a combination of academic knowledge and real-world experience.
         Having previously worked at a clean tech startup, I have gained valuable
