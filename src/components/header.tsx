@@ -5,8 +5,16 @@ import { CustomMenu, CustomToggle, DropDownItem } from "@components/dropDown"
 import {Container, Dropdown, Nav, Navbar} from 'react-bootstrap'
 import { H1, A, H2 } from './text';
 import { Settings } from './settings';
+import {projects} from '@helpers/projects'
 export default function Header(){
     const selectedPalette = GetPaletteContext()
+    const renderProjectItems=()=>{
+        let projectItems:JSX.Element[]=[]
+    for(let project of projects){
+      projectItems.push( <DropDownItem href={project.localLink} testId={project.name} text={project.name}/>)
+    } 
+    return projectItems
+    }
     return (
             <div  className={styles.header}>
             <Navbar style={{ backgroundColor: selectedPalette.secondary }}  expand="lg" >
@@ -34,7 +42,6 @@ export default function Header(){
                                 <DropDownItem href={'hi'} testId={'hi'} text='Item1'/>
                                 <DropDownItem href={'hi'} testId={'hi'} text='Item2'/>
                                 <DropDownItem href={'hi'} testId={'hi'} text='Item3'/>
-                                <DropDownItem href={'hi'} testId={'hi'} text='Item4'/>
                             </Dropdown.Menu>
                         </Dropdown>
                         <H2 className={styles.navItemCustom}>

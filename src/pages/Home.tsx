@@ -1,10 +1,18 @@
 import styles from '@styles/Home.module.css'
 import Footer from '@components/footer'
 import Header from '@components/header';
-import { PaletteContextInterface, PaletteContext } from '@styles/paletteContext';
-import { useContext } from 'react';
+import { GetPaletteContext } from '@styles/paletteContext';
+import ProjectCard from '@components/card';
+import {projects} from '@helpers/projects'
 export default function Home() {
-  const selectedPalette = useContext<PaletteContextInterface>(PaletteContext).Palette;
+  const selectedPalette = GetPaletteContext()
+  const renderProjectCards=()=>{
+    let projectCards:JSX.Element[]=[]
+    for(let project of projects){
+      projectCards.push( <ProjectCard project={project} style={{ width: '18rem', margin:'2vw' }}></ProjectCard>)
+    } 
+    return projectCards
+  }
     return (
       <main className={styles.main}>
         <Header/>
@@ -19,6 +27,9 @@ export default function Home() {
         to innovative projects, I am excited to showcase my skills and dedication 
         through my portfolio.
         </p>
+        <div className={styles.summary} style={{display:'flex',flex:1,  flexFlow: "wrap"}}>
+          {renderProjectCards()}
+        </div>
         <Footer/>
       </main>
   )
