@@ -1,19 +1,27 @@
-import { createContext } from "react";
+import { Dispatch, SetStateAction, createContext, useContext } from "react";
 
 export interface Palette{
-    name:string,
     primary:string,
     secondary:string,
-    accent1:string,
-    accent2:string,
+    tertiary:string,
+    quaternary:string,
     background:string
 }
+export interface PaletteContextInterface{
+    Palette:Palette
+    SetPalette:Dispatch<SetStateAction<Palette>>
+}
 export const startingPalette:Palette={
-    name: 'Sophisticated Neutrals',
     primary: '#274574',
     secondary: '#5397BD',
-    accent1: '#6F707A',
-    accent2: '#201A21',
+    tertiary: '#6F707A',
+    quaternary: '#201A21',
     background: '#D6DADC',
 }
-export const PaletteContext=createContext<Palette>(startingPalette);
+export const PaletteContext=createContext<PaletteContextInterface>({Palette:startingPalette,SetPalette:()=>{}});
+export const GetPaletteContext=()=>{
+    return useContext<PaletteContextInterface>(PaletteContext).Palette
+}
+export const SetPaletteContext=()=>{
+    return useContext<PaletteContextInterface>(PaletteContext).SetPalette
+}
