@@ -8,6 +8,6 @@ function rgbToHex(rgb: string) {
         return null
     }
     let RGB = rgb.split("(")[1].split(")")[0].split(", ")
-    return "#" + componentToHex(RGB[0]) + componentToHex(RGB[1]) + componentToHex(RGB[2]);
+    return ("#" + componentToHex(RGB[0]) + componentToHex(RGB[1]) + componentToHex(RGB[2])).toUpperCase();
 }
 export{rgbToHex}
