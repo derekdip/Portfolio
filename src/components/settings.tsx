@@ -1,9 +1,12 @@
 import { Palette, GetPaletteContext, SetPaletteContext } from "@styles/paletteContext";
 import {  useState } from "react";
-import { H1, H2, } from "./text";
+import { H1, H2, H3, } from "./text";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 import styles from "@styles/settings.module.css"
 import { ColorInput } from "./customForms";
+
+import { Configuration, OpenAIApi } from "openai";
+import { PrimaryBtn, SecondaryBtn } from "./buttons";
 
 const Settings: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({className,style}) => {
     const selectedPalette = GetPaletteContext()
@@ -12,6 +15,7 @@ const Settings: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({className,sty
 
     const [show, setShow] = useState(false);
     const [localPalette,setLocalPalette]= useState<Palette>(selectedPalette)
+    const [prompt, setPrompt] = useState("");
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -24,6 +28,26 @@ const Settings: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({className,sty
             return "#"+color
         }
         return color
+    }
+    const generate=async()=>{
+        const configuration = new Configuration({
+            organization: "org-CAnZdZII8enVGAAwOQq14PHI",
+            apiKey: process.env.OPENAI_API_KEY,
+        });
+        const openai = new OpenAIApi(configuration);
+        //const response = await openai.listEngines();
+        openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: `prompt="Generate a color palette of five colors for a website the color palette should look visually good, nothing that creates sharp contrasts, only give me the results as a json object (this is really important) in the following form. {primary:"string",    secondary:"string",    tertiary:"string",    quaternary:"string",    background:"string"} where "string" is replaced by hex. "tertiary" is the color used for regular text while "primary and secondary" are used for headers. Consider the following prompt when generating the JSON object: "${prompt}" if its empty or incomprehensible just generate a color palette of your choosing. Never give me more than just the json object specified, I cant stress this enough.` }],
+          }).then((res:any) => {
+            const generatedPalette:Palette=JSON.parse(res.data.choices[0].message.content)
+            setLocalPalette(generatedPalette)
+            setSelectedPalette(generatedPalette)
+            handleClose()
+          })
+          .catch((e) => {
+            console.log(e);
+          });
     }
 
     return(
@@ -45,16 +69,16 @@ const Settings: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({className,sty
                 <Row>
                 <Col>
                     <Form.Group >
-                        <ColorInput title="Primary" startingColor={selectedPalette.primary} setColor={(color:string)=>{
-                            setLocalPalette({...localPalette, primary:parseColorInput(color)})
+                        <ColorInput title="Primary" startingColor={selectedPalette.secondary} setColor={(color:string)=>{
+                            setLocalPalette({...localPalette, secondary:parseColorInput(color)})
                         }}/>
                         
                     </Form.Group>
                 </Col>
                 <Col>
                     <Form.Group >
-                        <ColorInput title="Secondary" startingColor={selectedPalette.secondary} setColor={(color:string)=>{
-                                setLocalPalette({...localPalette, secondary:parseColorInput(color)})
+                        <ColorInput title="Secondary" startingColor={selectedPalette.primary} setColor={(color:string)=>{
+                                setLocalPalette({...localPalette, primary:parseColorInput(color)})
                             }}/>
                     </Form.Group>
                 </Col>
@@ -87,9 +111,15 @@ const Settings: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({className,sty
                 </Container>
             </Modal.Body>
             <Modal.Footer style={{ borderWidth:0 }}>
-            <Button variant="primary" onClick={handleGlobalColorChange}>
-                Save Changes
-            </Button>
+            <PrimaryBtn testId="Save"  onClick={handleGlobalColorChange}>
+                 SAVE
+            </PrimaryBtn>
+            <Form.Control style={{color:selectedPalette.quaternary,backgroundColor:selectedPalette.background}} onChange={(e)=>{
+                            setPrompt(e.target.value)
+                            }} maxLength={70} placeholder="Enter prompt for an AI generated color palette" value={prompt}/>
+            <SecondaryBtn testId={"AIgenerated"} onClick={generate}>
+                Generate palette with AI
+            </SecondaryBtn>
             </Modal.Footer>
             </div>
         </Modal>

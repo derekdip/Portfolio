@@ -9,7 +9,7 @@ export default function Home() {
   const renderProjectCards=()=>{
     let projectCards:JSX.Element[]=[]
     for(let project of projects){
-      projectCards.push( <ProjectCard project={project} style={{ width: '18rem', margin:'2vw' }}></ProjectCard>)
+      projectCards.push( <ProjectCard key={project.name} project={project} style={{ width: '18rem', margin:'2vw' }}></ProjectCard>)
     } 
     return projectCards
   }

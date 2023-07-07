@@ -15,7 +15,7 @@ describe('DropDownItem component', () => {
         expect(currentBackgroundColor).toBe(null)//parent background color
         fireEvent.mouseEnter(dropDownItem)
         currentBackgroundColor=rgbToHex(dropDownItem.style.backgroundColor)
-        expect(currentBackgroundColor).toBe(startingPalette.primary)
+        expect(currentBackgroundColor).toBe(startingPalette.secondary)
         fireEvent.mouseLeave(dropDownItem)
         currentBackgroundColor=rgbToHex(dropDownItem.style.backgroundColor)
         expect(currentBackgroundColor).toBe(null)

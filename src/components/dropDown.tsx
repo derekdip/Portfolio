@@ -9,7 +9,7 @@ function DropDownItem(params:DropDownParams){
     const selectedPalette = GetPaletteContext()
     const [dropDownItemStyle,setDropDownItemStyle]=useState({color:selectedPalette.quaternary});
     function handleMouseEnter(params?:any) {
-        const itemStyle={backgroundColor:selectedPalette.primary, color:selectedPalette.tertiary};
+        const itemStyle={backgroundColor:selectedPalette.secondary, color:selectedPalette.tertiary};
         setDropDownItemStyle(itemStyle);
     } 
     function handleMouseLeave(params?:any){

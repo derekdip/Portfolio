@@ -17,10 +17,10 @@ export default function Header(){
     }
     return (
             <div  className={styles.header}>
-            <Navbar style={{ backgroundColor: selectedPalette.secondary }}  expand="lg" >
+            <Navbar style={{ backgroundColor: selectedPalette.primary }}  expand="lg" >
                 <Container>
                     <H1>
-                        <A testId="title-link" href="./Home" style={{ color: selectedPalette.primary, marginRight: '10vw' }}>Derek P</A>
+                        <A testId="title-link" href="./Home" style={{ color: selectedPalette.secondary, marginRight: '10vw' }}>Derek P</A>
                     </H1>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -38,7 +38,7 @@ export default function Header(){
                                     </H2>
                             </Dropdown.Toggle>
 
-                            <Dropdown.Menu as={CustomMenu} style={{backgroundColor:selectedPalette.secondary, border:0}}>
+                            <Dropdown.Menu as={CustomMenu} style={{backgroundColor:selectedPalette.primary, border:0}}>
                                 <DropDownItem href={'hi'} testId={'hi'} text='Item1'/>
                                 <DropDownItem href={'hi'} testId={'hi'} text='Item2'/>
                                 <DropDownItem href={'hi'} testId={'hi'} text='Item3'/>

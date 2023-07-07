@@ -1,7 +1,6 @@
 import { Dispatch, SetStateAction, createContext, useContext } from "react";
 
 export interface Palette{
-    name:string,
     primary:string,
     secondary:string,
     tertiary:string,
@@ -13,7 +12,6 @@ export interface PaletteContextInterface{
     SetPalette:Dispatch<SetStateAction<Palette>>
 }
 export const startingPalette:Palette={
-    name: 'Sophisticated Neutrals',
     primary: '#274574',
     secondary: '#5397BD',
     tertiary: '#6F707A',
