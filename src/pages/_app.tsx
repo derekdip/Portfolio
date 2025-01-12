@@ -13,16 +13,30 @@ export const metadata = {
 };
 
 function MyApp({ Component, pageProps }:AppProps) {
-  const [colorPalette,setColorPalette] = useState(startingPalette);
-  useEffect(()=>{
-    document.body.style.backgroundColor=colorPalette.background
-    document.body.style.margin="0"
-    document.body.style.padding="0"
-    document.body.style.height='100%'
-  },[colorPalette])
-  useEffect(()=>{
-    document.body.style.backgroundColor=colorPalette.background
-  },[colorPalette])
+  useEffect(() => {
+    // Adjust the root font size based on the viewport width
+    const setFontSize = () => {
+      const width = window.innerWidth;
+      if (width <= 480) {
+        document.documentElement.style.fontSize = '16px'; // mobile
+      } else if (width <= 768) {
+        document.documentElement.style.fontSize = '18px'; // tablets
+      } else {
+        document.documentElement.style.fontSize = '22px'; // desktop
+      }
+    };
+
+    // Run on initial load
+    setFontSize();
+    
+    // Re-run when window size changes
+    window.addEventListener('resize', setFontSize);
+
+    // Clean up on component unmount
+    return () => {
+      window.removeEventListener('resize', setFontSize);
+    };
+  }, []);
   return (
     <>
       <Head>
@@ -34,9 +48,7 @@ function MyApp({ Component, pageProps }:AppProps) {
           sizes='any'
         />
       </Head>
-      <PaletteContext.Provider value={{Palette:colorPalette,SetPalette:setColorPalette}}>
-          <Component {...pageProps} />
-      </PaletteContext.Provider>
+      <Component {...pageProps} />
     </>
   );
 }
